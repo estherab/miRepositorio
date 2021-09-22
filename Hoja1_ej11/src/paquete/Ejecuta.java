@@ -1,5 +1,8 @@
 package paquete;
 
+import java.util.Calendar;
+import java.util.Scanner;
+
 public class Ejecuta {
 
 	public static void main(String[] args) {
@@ -9,6 +12,44 @@ public class Ejecuta {
 		   el nombre del alumno menor. NOTA: Al introducir como nombre “fin”, no nos ha de pedir el
 		   año de nacimiento.
 		 */
-		System.out.println("Hola mundo");
+		Scanner sc = new Scanner(System.in);
+		String nombre, nombreMenor = "";
+		boolean continuar = true;
+		int anoNacimiento, suma = 0, i = 0, edad, edadMenor = Integer.MAX_VALUE;
+		
+		
+		Calendar cal= Calendar.getInstance();
+		int anoActual = cal.get(Calendar.YEAR);
+		
+		System.out.print("Nombre: ");
+		nombre = sc.next();
+		
+		while (continuar) {
+			if (nombre.equals("fin")) 
+				continuar = false;
+			
+			else {
+				System.out.print("Año nacimiento: ");
+				anoNacimiento = sc.nextInt();
+				i++;
+				edad = anoActual - anoNacimiento;
+				suma += edad;
+				
+				if (edad < edadMenor) {
+					nombreMenor = nombre;
+					edadMenor = edad;
+				}
+				
+				System.out.print("Nombre: ");
+				nombre = sc.next();
+			}	
+		}	
+		
+		if (i > 0) {
+			System.out.println("Edad media: " + (float)suma/i);
+			System.out.println("Nombre menor: " + nombreMenor);
+		}
+		
+		sc.close();
 	}
 }
