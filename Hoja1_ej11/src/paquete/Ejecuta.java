@@ -7,16 +7,15 @@ public class Ejecuta {
 
 	public static void main(String[] args) {
 		/*
-		 * 11. Programa que lee nombre y año de nacimiento de una serie de alumnos hasta introducir
-		   como nombre de alumno “fin”. En ese momento mostrará la edad media de los alumnos y
-		   el nombre del alumno menor. NOTA: Al introducir como nombre “fin”, no nos ha de pedir el
-		   año de nacimiento.
+		11. Programa que lee nombre y año de nacimiento de una serie de alumnos hasta introducir
+		como nombre de alumno “fin”. En ese momento mostrará la edad media de los alumnos y
+		el nombre del alumno menor. NOTA: Al introducir como nombre “fin”, no nos ha de pedir el
+		año de nacimiento.
 		 */
+		
 		Scanner sc = new Scanner(System.in);
 		String nombre, nombreMenor = "";
-		boolean continuar = true;
 		int anoNacimiento, suma = 0, i = 0, edad, edadMenor = Integer.MAX_VALUE;
-		
 		
 		Calendar cal= Calendar.getInstance();
 		int anoActual = cal.get(Calendar.YEAR);
@@ -24,25 +23,21 @@ public class Ejecuta {
 		System.out.print("Nombre: ");
 		nombre = sc.next();
 		
-		while (continuar) {
-			if (nombre.equals("fin")) 
-				continuar = false;
+		while (!nombre.equals("fin")) {
+			System.out.print("Año nacimiento: ");
+			anoNacimiento = sc.nextInt();
 			
-			else {
-				System.out.print("Año nacimiento: ");
-				anoNacimiento = sc.nextInt();
-				i++;
-				edad = anoActual - anoNacimiento;
-				suma += edad;
+			i++;
+			edad = anoActual - anoNacimiento;
+			suma += edad;
 				
-				if (edad < edadMenor) {
-					nombreMenor = nombre;
-					edadMenor = edad;
-				}
+			if (edad < edadMenor) {
+				nombreMenor = nombre;
+				edadMenor = edad;
+			}
 				
-				System.out.print("Nombre: ");
-				nombre = sc.next();
-			}	
+			System.out.print("Nombre: ");
+			nombre = sc.next();	
 		}	
 		
 		if (i > 0) {
