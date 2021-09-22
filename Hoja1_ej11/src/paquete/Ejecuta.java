@@ -7,10 +7,10 @@ public class Ejecuta {
 
 	public static void main(String[] args) {
 		/*
-		11. Programa que lee nombre y aÒo de nacimiento de una serie de alumnos hasta introducir
-		como nombre de alumno ìfinî. En ese momento mostrar· la edad media de los alumnos y
-		el nombre del alumno menor. NOTA: Al introducir como nombre ìfinî, no nos ha de pedir el
-		aÒo de nacimiento.
+		11. Programa que lee nombre y a√±o de nacimiento de una serie de alumnos hasta introducir
+		como nombre de alumno ‚Äúfin‚Äù. En ese momento mostrar√° la edad media de los alumnos y
+		el nombre del alumno menor. NOTA: Al introducir como nombre ‚Äúfin‚Äù, no nos ha de pedir el
+		a√±o de nacimiento.
 		 */
 		
 		Scanner sc = new Scanner(System.in);
@@ -24,7 +24,7 @@ public class Ejecuta {
 		nombre = sc.next();
 		
 		while (!nombre.equals("fin")) {
-			System.out.print("AÒo nacimiento: ");
+			System.out.print("A√±o nacimiento: ");
 			anoNacimiento = sc.nextInt();
 			
 			i++;
@@ -46,5 +46,6 @@ public class Ejecuta {
 		}
 		
 		sc.close();
+		// Fin del c√≥digo
 	}
 }
